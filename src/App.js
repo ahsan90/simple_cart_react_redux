@@ -1,10 +1,13 @@
 
 import './App.css';
+import Layout from './components/Layout';
 
 function App() {
   return (
     <div className="App">
-      <h1>Simple Shopping Cart</h1>
+      <Layout>
+        
+      </Layout>
     </div>
   );
 }
