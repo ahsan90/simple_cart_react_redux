@@ -25,9 +25,11 @@ export default function Cart() {
   return (
     <div className="col-span-12 sm:col-span-12 md:col-span-5 lg:col-span-4 xxl:col-span-4">
       <div className="bg-white py-4 px-4 shadow-md rounded-lg my-4 mx-4">
-        {items?.length > 0
-          ? items.map((item) => <CartItem key={item.id} item={item} />)
-          : <p className="items-center text-center">Your Cart is empty</p>}
+        {items?.length > 0 ? (
+          items.map((item) => <CartItem key={item.id} item={item} />)
+        ) : (
+          <p className="items-center text-center">Your Cart is empty</p>
+        )}
         {items?.length > 0 && (
           <>
             <div className="flex justify-center items-center text-center">
@@ -51,7 +53,12 @@ export default function Cart() {
             <div className="flex justify-center items-center text-center">
               <div className="text-xl font-semibold">
                 <p>Total Price</p>
-                <p className="text-5xl">{totalPrice}</p>
+                <p className="text-5xl">
+                  {totalPrice.toLocaleString("en-US", {
+                    style: "currency",
+                    currency: "CAD",
+                  })}
+                </p>
               </div>
             </div>
           </div>

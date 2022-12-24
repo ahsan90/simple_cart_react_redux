@@ -33,7 +33,7 @@ export default function ProductItem({ product }) {
           <p className="text-gray-400 text-left">
             {product.price.toLocaleString("en-US", {
               style: "currency",
-              currency: "BDT",
+              currency: "CAD",
             })}
           </p>
         </div>
