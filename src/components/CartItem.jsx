@@ -6,7 +6,7 @@ import {
   removeFromCart,
 } from "../redux/cart/actions";
 import { toast } from "react-toastify";
-import { decrease_stock, getProduct, increase_stock } from "../redux/product/actions";
+import { decrease_stock, getProduct, increase_stock, reset_product } from "../redux/product/actions";
 
 export default function CartItem({ item }) {
   const { items } = useSelector((state) => state.cart);
@@ -58,7 +58,9 @@ export default function CartItem({ item }) {
   };
 
   const handleRemoveItem = (itemToBeRemoved) => {
+    console.log(itemToBeRemoved)
     dispatch(removeFromCart(itemToBeRemoved));
+    dispatch(reset_product(itemToBeRemoved))
   };
   return (
     <div className="flex justify-between border-b-2 mb-2">

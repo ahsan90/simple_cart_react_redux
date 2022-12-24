@@ -28,12 +28,11 @@ export default function Cart() {
         {items?.length > 0
           ? items.map((item) => <CartItem key={item.id} item={item} />)
           : <p className="items-center text-center">Your Cart is empty</p>}
-
         {items?.length > 0 && (
           <>
             <div className="flex justify-center items-center text-center">
               <div className="text-xl font-semibold">
-                <p>Total Item</p>
+                <p>Total Item Type</p>
                 <p className="text-5xl">{items?.length}</p>
               </div>
             </div>

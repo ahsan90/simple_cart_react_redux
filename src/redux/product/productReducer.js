@@ -1,4 +1,4 @@
-import { DECREASE_STOCK, GET_PRODUCT, GET_PRODUCTS, INCREASE_STOCK } from "./actionTypes";
+import { DECREASE_STOCK, GET_PRODUCT, GET_PRODUCTS, INCREASE_STOCK, RESET_PRODUCT } from "./actionTypes";
 
 const initialState = {
     products: [],
@@ -48,6 +48,19 @@ const productReducer = (state = initialState, action) => {
                     };
                 }),
             };
+        case RESET_PRODUCT: 
+            return {
+                ...state, 
+                products: state.products.map((product) => {
+                    if (product.id !== action.payload.id) {
+                        return product
+                    }
+                    return {
+                        ...product,
+                        quantity: product.quantity + action.payload.quantity
+                    }
+                })
+            }
         default:
             return state;
     }

@@ -1,4 +1,4 @@
-import { DECREASE_STOCK, GET_PRODUCT, GET_PRODUCTS, INCREASE_STOCK } from "./actionTypes";
+import { DECREASE_STOCK, GET_PRODUCT, GET_PRODUCTS, INCREASE_STOCK, RESET_PRODUCT } from "./actionTypes";
 import productListing from "../product_data";
 
 export const get_products = () => {
@@ -32,5 +32,12 @@ export const decrease_stock = (productId) => {
     return {
         type: DECREASE_STOCK,
         payload: productId
+    }
+}
+
+export const reset_product = (productItem) => {
+    return {
+        type: RESET_PRODUCT,
+        payload: productItem
     }
 }
