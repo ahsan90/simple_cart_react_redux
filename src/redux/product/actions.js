@@ -1,5 +1,5 @@
 import { DECREASE_STOCK, GET_PRODUCT, GET_PRODUCTS, INCREASE_STOCK } from "./actionTypes";
-import productListing from "../../models/Products";
+import productListing from "../product_data";
 
 export const get_products = () => {
     return {
