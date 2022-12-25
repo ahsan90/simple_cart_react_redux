@@ -27,9 +27,13 @@ export default function ProductItem({ product }) {
 
   return (
     <div className="bg-white py-4 px-4 shadow-md rounded-lg my-4 mx-4">
-      <div className="flex justify-between px-4 items-center">
+      <div
+        className={`flex justify-between px-4 items-center ${
+          product.quantity === 0 ? "stock_out" : ""
+        }`}
+      >
         <div className="text-lg font-semibold">
-          <p>{product.productName + " (" + product.quantity + ")"}</p>
+          <p className={`${product.quantity === 0? 'stock_out_item' : ''}`}>{product.productName + " (" + product.quantity + ")"}</p>
           <p className="text-gray-400 text-left">
             {product.price.toLocaleString("en-US", {
               style: "currency",
@@ -39,7 +43,13 @@ export default function ProductItem({ product }) {
         </div>
         <div className="text-lg font-semibold">
           <button
-            className="focus:outline-none bg-purple-700 hover:bg-purple-800 text-white font-bold py-2 px-2 rounded-full inline-flex items-center"
+            type="button"
+            className={`focus:outline-none bg-purple-700  text-white font-bold py-2 px-2 rounded-full inline-flex items-center ${
+              product.quantity === 0
+                ? "disabled:opacity-25 stock_out"
+                : "hover:bg-purple-800"
+            }`}
+            disabled={product.quantity === 0 ? true : false}
             onClick={() => handleAddToCart(product)}
           >
             <svg

@@ -1,5 +1,21 @@
- .main_content{
-    max-width: 80%;
+.main_content {
+  max-width: 80%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.stock_out {
+   cursor: not-allowed;
+   color: gray;
+}
+.stock_out_item {
+   text-decoration: line-through solid red 2px;
+}
+
+@media (max-width: 600px) {
+  .main_content {
+    max-width: 100%;
     margin: 0 auto;
     box-sizing: border-box;
- }
+  }
+}
